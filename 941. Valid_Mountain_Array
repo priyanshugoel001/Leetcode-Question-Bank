@@ -1,0 +1,32 @@
+ bool validMountainArray(vector<int>& arr) {
+        bool increasing=false;
+        bool decreasing=false;
+        for(int i=1;i<arr.size();i++)
+        {
+            if(arr[i]==arr[i-1])
+            {
+                return false;
+            }
+            else if(arr[i]>arr[i-1])
+            {
+                if(decreasing==true)
+                {
+                    return false;
+                }
+                increasing=true;
+            }
+            else
+            {
+                if(increasing==false)
+                {
+                    return false;
+                }
+                decreasing=true;
+            }
+        }
+        if(increasing==false || decreasing==false)
+        {
+            return false;
+        }
+        return true;
+    }
